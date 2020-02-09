@@ -9,7 +9,7 @@ import requests
 
 def telegram_bot_sendtext(bot_message):
     
-    bot_token = '1001724290:AAErldTxnrzl1BHcfvSatuJkdKbR3f3Zrt0'
+    bot_token = ''
     bot_chatID = '720456025'
     send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
 
