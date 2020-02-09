@@ -3,6 +3,18 @@ import requests
 import re
 import json
 from datetime import datetime
+import requests
+
+def telegram_bot_sendtext(bot_message):
+    
+    bot_token = '1001724290:AAErldTxnrzl1BHcfvSatuJkdKbR3f3Zrt0'
+    bot_chatID = '720456025'
+    send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chatID + '&parse_mode=Markdown&text=' + bot_message
+
+    response = requests.get(send_text)
+
+    return response.json()
+    
 
 class TerminChecker:
     def __init__(self, interval = 120, numberOfPersons = 1):
@@ -37,6 +49,8 @@ class TerminChecker:
             self.shouldAlarm = True
                 
     def alarm(self):
+        test = telegram_bot_sendtext(str(datetime.now())+" : Appointment found!! visit https://www.muenchen.de/rathaus/terminvereinbarung_abh.html?cts=1080627 to finalize")
+        print(test)
         # TODO: implement your own alarm function
         # Hint: I used smsflatrate.net service, which allows sending an SMS via HTTP GET request
         return
